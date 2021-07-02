@@ -1,0 +1,16 @@
+field.field_settings.ipaddress:
+  type: mapping
+  label: 'ipaddress settings'
+  mapping:
+    allow_range:
+      type: boolean
+      label: 'Allow IP range'
+    allow_family:
+      type: integer
+      label: 'Allow IP family'
+    ip4_range:
+      type: string
+      label: 'IPv4 range'
+    ip6_range:
+      type: string
+      label: 'IPv6 range'

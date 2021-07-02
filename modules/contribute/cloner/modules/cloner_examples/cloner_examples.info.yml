@@ -1,0 +1,12 @@
+name: Cloner Examples
+type: module
+description: The entity clone plugin examples.
+package: Development
+core_version_requirement: ^8 || ^9
+dependencies:
+  - cloner:cloner
+
+# Information added by Drupal.org packaging script on 2020-12-18
+version: '2.0.0-alpha1'
+project: 'cloner'
+datestamp: 1608276912

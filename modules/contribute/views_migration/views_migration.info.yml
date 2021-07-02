@@ -1,0 +1,15 @@
+name: Views Migration
+type: module
+description: 'Migrate views from drupal 7'
+package: Views
+core_version_requirement: ^8.8 || ^9.0
+dependencies:
+  - drupal:views
+  - drupal:migrate
+  - drupal:migrate_drupal
+  - migrate_plus:migrate_plus
+
+# Information added by Drupal.org packaging script on 2021-06-08
+version: '1.1.4'
+project: 'views_migration'
+datestamp: 1623172305
