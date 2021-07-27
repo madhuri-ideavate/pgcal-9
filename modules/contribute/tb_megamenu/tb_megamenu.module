@@ -261,7 +261,8 @@ function template_preprocess_tb_megamenu_subnav(array &$vars) {
   $level = $vars['level'];
   $vars['lis'] = [];
   foreach ($col as $tb_item) {
-    $item = \Drupal::service('tb_megamenu.menu_builder')->getMenuItem($vars['menu_name'], $tb_item['plugin_id']);
+    $plugin_id = !empty($tb_item['plugin_id']) ? $tb_item['plugin_id'] : '';
+    $item = \Drupal::service('tb_megamenu.menu_builder')->getMenuItem($vars['menu_name'], $plugin_id);
     if (empty($tb_item)) {
       // @todo figure out how to handle NULLs in columns.
       continue;
@@ -304,7 +305,7 @@ function template_preprocess_tb_megamenu_subnav(array &$vars) {
   $vars['attributes']['class'][] = "items-" . count($col);
 
   // Add a11y attributes.
-  $vars['attributes']['role'] = t('list');
+  $vars['attributes']['role'] = 'list';
 }
 
 /**
@@ -358,7 +359,7 @@ function template_preprocess_tb_megamenu_submenu(array &$vars) {
   }
 
   // Add a11y attributes.
-  $vars['attributes']['role'] = t('list');
+  $vars['attributes']['role'] = 'list';
 }
 
 /**
@@ -439,7 +440,7 @@ function template_preprocess_tb_megamenu(array &$vars) {
   }
 
   // Add a11y attributes.
-  $vars['attributes']['role'] = t('navigation');
+  $vars['attributes']['role'] = 'navigation';
   $vars['attributes']['aria-label'] = t('Main navigation');
 }
 
@@ -561,7 +562,7 @@ function template_preprocess_tb_megamenu_nav(array &$vars) {
   $vars['attributes']['class'][] = "items-" . count($items);
 
   // Add a11y attributes to unordered list tag.
-  $vars['attributes']['role'] = t('list');
+  $vars['attributes']['role'] = 'list';
 }
 
 /**

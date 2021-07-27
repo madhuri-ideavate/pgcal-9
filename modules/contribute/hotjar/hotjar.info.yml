@@ -7,7 +7,7 @@ configure: hotjar.admin_settings_form
 dependencies:
  - drupal:path_alias
 
-# Information added by Drupal.org packaging script on 2020-11-18
-version: '8.x-2.0'
+# Information added by Drupal.org packaging script on 2021-07-01
+version: '8.x-2.2'
 project: 'hotjar'
-datestamp: 1605689026
+datestamp: 1625130595

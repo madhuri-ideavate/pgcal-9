@@ -9,7 +9,7 @@ dependencies:
   - views
   - datetime
 
-# Information added by Drupal.org packaging script on 2020-04-20
-version: '8.x-1.0-alpha3'
+# Information added by Drupal.org packaging script on 2020-04-21
+version: '8.x-1.0-alpha3+1-dev'
 project: 'fullcalendar'
-datestamp: 1587382059
+datestamp: 1587453049

@@ -5,7 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [\[Unreleased: 8.x-1.x-dev\]](https://www.drupal.org/project/tb_megamenu/releases/8.x-1.x-dev)
+## [\[Unreleased\]](https://www.drupal.org/project/tb_megamenu/releases/8.x-1.x)
+
+## [\[8.x-1.1\]](https://www.drupal.org/project/tb_megamenu/releases/8.x-1.1) - 2021-07-07
+### Fixed
+- Issue [#3222460](https://www.drupal.org/project/tb_megamenu/issues/3222460) by firfin: PHP error after enabling module (syntax error, unexpected ')' in ...Plugin/Derivative/TBMegaMenuBlock.php )
+
+## [\[8.x-1.0\]](https://www.drupal.org/project/tb_megamenu/releases/8.x-1.0) - 2021-06-25
+### Fixed
+- Issue [#3218483](https://www.drupal.org/project/tb_megamenu/issues/3218483) by themodularlab, knaffles: Opt into Security Policy Coverage
+- Issue [#3218482](https://www.drupal.org/project/tb_megamenu/issues/3218482) by pcfoster, knaffles: Keydown listener interferes with use of spacebar
+- Issue [#3204998](https://www.drupal.org/project/tb_megamenu/issues/3204998) by themodularlab, crasx, quondam: TB Megamenu doesnt work when logged in with admin toolbar enabled
+- issue [#3219595](https://www.drupal.org/project/tb_megamenu/issues/3219595) by nironan, themodularlab: Accessibility: invalid roles for multilingual sites
+- Issue [#3186612](https://www.drupal.org/project/tb_megamenu/issues/3186612) by themodularlab, quondam, knaffles: Security Advisory Coverage
+  Security Review
+- Issue [#3198123](https://www.drupal.org/project/tb_megamenu/issues/3198123) by arshadkhan35: Drupal 9.1 install crash undefined function menu_ui_get_menus()
+- Issue [#3198116](https://www.drupal.org/project/tb_megamenu/issues/3198116) by quondam: Add Configure link on Extend page
+- Issue [#3199343](https://www.drupal.org/project/tb_megamenu/issues/3199343) by nironan: Allow compatibility with webprofiler
+- Issue [#3199456](https://www.drupal.org/project/tb_megamenu/issues/3199456) by nironan: Performance: do not load the menu tree multiple times
 
 ## [\[8.x-1.0-rc3\]](https://www.drupal.org/project/tb_megamenu/releases/8.x-1.0-rc3) - 2021-02-11
 ### Fixed
@@ -64,7 +81,8 @@ coverage issue.
 
 ### Fixed
 - Issue [#3174476](https://www.drupal.org/project/tb_megamenu/issues/3174476) by John.nie, themodularlab: Render #post_render callbacks must
-  be methods of a class that implements \Drupal\Core\Security\TrustedCallbackInterface or be an anonymous function.
+  be methods of a class that implements
+  \Drupal\Core\Security\TrustedCallbackInterface or be an anonymous function.
 - Issue [#3174465](https://www.drupal.org/project/tb_megamenu/issues/3174465) by John.nie: Mega menu missing config_export definition
   in its annotation.
 - Issue [#3172977](https://www.drupal.org/project/tb_megamenu/issues/3172977) by Ramya Balasubramanian, dev.patrick: Unwanted special
@@ -95,15 +113,4 @@ coverage issue.
   an error.
 - Issue [#3045390](https://www.drupal.org/project/tb_megamenu/issues/3045390) by RuslanP, knaffles: Module Description: add dot to the end of
   the sentence.
-
-[8.x-1.x-dev]: https://git.drupalcode.org/project/tb_megamenu/-/tree/8.x-1.x-dev
-[8.x-1.0-rc3]: https://git.drupalcode.org/project/tb_megamenu/-/tags/8.x-1.0-rc3
-[8.x-1.0-rc2]: https://git.drupalcode.org/project/tb_megamenu/-/tags/8.x-1.0-rc2
-[8.x-1.0-rc1]: https://git.drupalcode.org/project/tb_megamenu/-/tags/8.x-1.0-rc1
-[8.x-1.0-beta2]: https://git.drupalcode.org/project/tb_megamenu/-/tags/8.x-1.0-beta2
-[8.x-1.0-beta1]: https://git.drupalcode.org/project/tb_megamenu/-/tags/8.x-1.0-beta1
-
-
-
-
 

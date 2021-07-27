@@ -2,6 +2,7 @@
 
 namespace Drupal\hotjar;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Asset\AssetCollectionOptimizerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
@@ -156,9 +157,9 @@ class SnippetBuilder implements SnippetBuilderInterface, ContainerInjectionInter
    * Add page attachments when DrupalSettings mode is in use.
    */
   protected function pageAttachmentDrupalSettings(array &$attachments) {
-    // Use escaped HotjarID.
-    $clean_id = $this->escapeValue($this->settings->getSetting('account'));
-    $clean_version = $this->escapeValue($this->settings->getSetting('snippet_version'));
+    // Assets resolver will escape drupalSettings.
+    $clean_id = Html::escape((string) $this->settings->getSetting('account'));
+    $clean_version = Html::escape($this->settings->getSetting('snippet_version'));
 
     $attachments['#attached']['drupalSettings']['hotjar']['account'] = $clean_id;
     $attachments['#attached']['drupalSettings']['hotjar']['snippetVersion'] = $clean_version;
@@ -224,14 +225,16 @@ class SnippetBuilder implements SnippetBuilderInterface, ContainerInjectionInter
    * {@inheritdoc}
    */
   public function buildSnippet() {
+    $id = $this->settings->getSetting('account');
     // Use escaped HotjarID.
-    $clean_id = $this->escapeValue($this->settings->getSetting('account'));
+    $clean_id = $this->escapeValue($id);
     $clean_version = $this->escapeValue($this->settings->getSetting('snippet_version'));
 
     // Quote from the Hotjar dashboard:
     // The Tracking Code below should be placed in the <head> tag of
     // every page you want to track on your site.
-    $script = <<<HJ
+    if ($id && $clean_id) {
+      $script = <<<HJ
 (function(h,o,t,j,a,r){
   h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
   h._hjSettings={hjid:{$clean_id},hjsv:{$clean_version}};
@@ -241,6 +244,12 @@ class SnippetBuilder implements SnippetBuilderInterface, ContainerInjectionInter
   a.appendChild(r);
 })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
 HJ;
+    }
+    else {
+      $script = <<<HJ
+// Empty HotjarID.
+HJ;
+    }
 
     // Allow other modules to modify or wrap the script.
     $this->moduleHandler->alter('hotjar_snippet', $script);

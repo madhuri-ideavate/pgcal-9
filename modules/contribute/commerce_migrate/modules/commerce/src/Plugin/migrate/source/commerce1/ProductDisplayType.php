@@ -5,6 +5,7 @@ namespace Drupal\commerce_migrate_commerce\Plugin\migrate\source\commerce1;
 use Drupal\migrate\MigrateException;
 use Drupal\migrate\Row;
 use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
+use Drupal\migrate_drupal\Plugin\migrate\process\commerce1\resolveTargetVariationType;
 use Drupal\commerce_product\Entity\ProductType as CommerceProductType;
 
 /**
@@ -49,19 +50,19 @@ class ProductDisplayType extends DrupalSqlBase {
 
     // @TODO: Remove this block of code when resolveTargetVariationType is
     // removed.
-    $instance_config = $row->getSourceProperty('data');
-    $product_variation_type = array_filter($instance_config['settings']['referenceable_types']);
+    // $instance_config = $row->getSourceProperty('data');
+    // $product_variation_type = array_filter($instance_config['settings']['referenceable_types']);
 
-    if (count($product_variation_type) > 1) {
-      $product_variation_type = $this->resolveTargetVariationType($row, $product_variation_type);
-    }
-    else {
-      $product_variation_type = reset($product_variation_type);
-    }
+    // if (count($product_variation_type) > 1) {
+    //   $product_variation_type = $this->resolveTargetVariationType($row, $product_variation_type);
+    // }
+    // else {
+    //   $product_variation_type = reset($product_variation_type);
+    // }
 
-    $row->setSourceProperty('variation_type', $product_variation_type);
+    // $row->setSourceProperty('variation_type', $product_variation_type);
 
-    return parent::prepareRow($row);
+    // return parent::prepareRow($row);
   }
 
   /**
@@ -115,11 +116,16 @@ class ProductDisplayType extends DrupalSqlBase {
       $key = array_search($row->getSourceProperty('type'), $product_variation_types);
 
       if ($key !== FALSE) {
-        $product_variation_type = $product_variation_types[$key];
+       // $product_variation_type = $product_variation_types[$key];
+       $product_variation_type = 'product';
+
       }
     }
 
     if ($product_variation_type === FALSE) {
+      print_r($this->configuration);
+      print_r($this->configuration['variations']['default']);
+die;
       // Make sure the default product type exists.
       if (!empty($this->configuration['variations']['default']) && CommerceProductType::load($this->configuration['variations']['default'])) {
         $product_variation_type = $this->configuration['variations']['default'];
